@@ -7,7 +7,7 @@ ftfy
 iopath
 ipython
 omegaconf
-opencv-python-headless==4.5.5.64
+opencv-python
 opendatasets
 packaging
 pandas
@@ -29,11 +29,11 @@ webdataset
 wheel
 torchaudio
 soundfile
-moviepy
+moviepy==1.0.3
 nltk
-peft
-
+peft==0.10.0
+huggingface_hub==0.22.0
 easydict==1.9
 pyyaml_env_tag==0.1
-open3d==0.13.0
+open3d>=0.13.0
 h5py
