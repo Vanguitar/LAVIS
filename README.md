@@ -1,157 +1,17 @@
-<p align="center">
-    <br>
-    <img src="docs/_static/logo_final.png" width="400"/>
-    <br>
-<p>
 
-<div align="center">
-  <a href="https://github.com/salesforce/LAVIS/releases"><img alt="Latest Release" src="https://img.shields.io/github/release/salesforce/LAVIS.svg" /></a>
-  <a href="https://opensource.salesforce.com/LAVIS/index.html">
-  <img alt="docs" src="https://github.com/salesforce/LAVIS/actions/workflows/docs.yaml/badge.svg"/>
-  <a href="https://opensource.org/licenses/BSD-3-Clause">
-  <img alt="license" src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg"/>
-  </a> 
-  <a href="https://pepy.tech/project/salesforce-lavis">
-  <img alt="Downloads" src="https://pepy.tech/badge/salesforce-lavis">
-  </a>
-</div>
+## Installation正确版本的LAVIS
 
-<div align="center">
-<a href="https://opensource.salesforce.com/LAVIS//latest/benchmark.html">Benchmark</a>,
-<a href="https://arxiv.org/abs/2209.09019">Technical Report</a>,
-<a href="https://opensource.salesforce.com/LAVIS//latest/index.html">Documentation</a>,
-<a href="https://github.com/salesforce/LAVIS/tree/main/examples">Jupyter Notebook Examples</a>,
-<a href="https://blog.salesforceairesearch.com/lavis-language-vision-library/">Blog</a>
-</div>
-
-# LAVIS - A Library for Language-Vision Intelligence
-
-## What's New: 🎉 
-  * [Model Release] November 2023, released implementation of **X-InstructBLIP** <br>
-  [Paper](https://arxiv.org/pdf/2311.18799.pdf), [Project Page](https://github.com/salesforce/LAVIS/tree/main/projects/xinstructblip), [Website](https://artemisp.github.io/X-InstructBLIP-page/), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/salesforce/LAVIS/blob/main/projects/xinstructblip/demo/run_demo.ipynb)
-  > A simple, yet effective, cross-modality framework built atop frozen LLMs that allows the integration of various modalities (image, video, audio, 3D) without extensive modality-specific customization.
-  * [Model Release] July 2023, released implementation of **BLIP-Diffusion** <br>
-  [Paper](https://arxiv.org/abs/2305.06500), [Project Page](https://github.com/salesforce/LAVIS/tree/main/projects/blip-diffusion), [Website](https://dxli94.github.io/BLIP-Diffusion-website/)
-  > A text-to-image generation model that trains 20x than DreamBooth. Also facilitates zero-shot subject-driven generation and editing.
-  * [Model Release] May 2023, released implementation of **InstructBLIP** <br>
-  [Paper](https://arxiv.org/abs/2305.06500), [Project Page](https://github.com/salesforce/LAVIS/tree/main/projects/instructblip)    
-  > A new vision-language instruction-tuning framework using BLIP-2 models, achieving state-of-the-art zero-shot generalization performance on a wide range of vision-language tasks.
-  * [Model Release] Jan 2023, released implementation of **BLIP-2** <br>
-  [Paper](https://arxiv.org/abs/2301.12597), [Project Page](https://github.com/salesforce/LAVIS/tree/main/projects/blip2), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/salesforce/LAVIS/blob/main/examples/blip2_instructed_generation.ipynb)
-  > A generic and efficient pre-training strategy that easily harvests development of pretrained vision models and large language models (LLMs) for vision-language pretraining. BLIP-2 beats Flamingo on zero-shot VQAv2 (**65.0** vs **56.3**), establishing new state-of-the-art on zero-shot captioning (on NoCaps **121.6** CIDEr score vs previous best **113.2**). In addition, equipped with powerful LLMs (e.g. OPT, FlanT5), BLIP-2 also unlocks the new **zero-shot instructed vision-to-language generation** capabilities for various interesting applications!
-  * Jan 2023, LAVIS is now available on [PyPI](https://pypi.org/project/salesforce-lavis/) for installation!
-  * [Model Release] Dec 2022, released implementation of **Img2LLM-VQA** (**CVPR 2023**, _"From Images to Textual Prompts: Zero-shot VQA with Frozen Large Language Models"_, by Jiaxian Guo et al) <br>
-  [Paper](https://arxiv.org/pdf/2212.10846.pdf), [Project Page](https://github.com/salesforce/LAVIS/tree/main/projects/img2llm-vqa), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/salesforce/LAVIS/blob/main/projects/img2llm-vqa/img2llm_vqa.ipynb)
-  > A plug-and-play module that enables off-the-shelf use of Large Language Models (LLMs) for visual question answering (VQA). Img2LLM-VQA surpasses Flamingo on zero-shot VQA on VQAv2 (61.9 vs 56.3), while in contrast requiring no end-to-end training! 
-  * [Model Release] Oct 2022, released implementation of **PNP-VQA** (**EMNLP Findings 2022**, _"Plug-and-Play VQA: Zero-shot VQA by Conjoining Large Pretrained Models with Zero Training"_, by Anthony T.M.H. et al), <br> 
-  [Paper](https://arxiv.org/abs/2210.08773), [Project Page](https://github.com/salesforce/LAVIS/tree/main/projects/pnp-vqa), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/salesforce/LAVIS/blob/main/projects/pnp-vqa/pnp_vqa.ipynb))
-  >  A modular zero-shot VQA framework that requires no PLMs training, achieving SoTA zero-shot VQA performance. 
-
-## Technical Report and Citing LAVIS
-You can find more details in our [technical report](https://arxiv.org/abs/2209.09019).
-
-**If you're using LAVIS in your research or applications, please cite it using this BibTeX**:
-```bibtex
-@inproceedings{li-etal-2023-lavis,
-    title = "{LAVIS}: A One-stop Library for Language-Vision Intelligence",
-    author = "Li, Dongxu  and
-      Li, Junnan  and
-      Le, Hung  and
-      Wang, Guangsen  and
-      Savarese, Silvio  and
-      Hoi, Steven C.H.",
-    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)",
-    month = jul,
-    year = "2023",
-    address = "Toronto, Canada",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2023.acl-demo.3",
-    pages = "31--41",
-    abstract = "We introduce LAVIS, an open-source deep learning library for LAnguage-VISion research and applications. LAVIS aims to serve as a one-stop comprehensive library that brings recent advancements in the language-vision field accessible for researchers and practitioners, as well as fertilizing future research and development. It features a unified interface to easily access state-of-the-art image-language, video-language models and common datasets. LAVIS supports training, evaluation and benchmarking on a rich variety of tasks, including multimodal classification, retrieval, captioning, visual question answering, dialogue and pre-training. In the meantime, the library is also highly extensible and configurable, facilitating future development and customization. In this technical report, we describe design principles, key components and functionalities of the library, and also present benchmarking results across common language-vision tasks.",
-}
-```
-
-
-## Table of Contents
-  - [Introduction](#introduction)
-  - [Installation](#installation)
-  - [Getting Started](#getting-started)
-    - [Model Zoo](#model-zoo)
-    - [Image Captioning](#image-captioning)
-    - [Visual question answering (VQA)](#visual-question-answering-vqa)
-    - [Unified Feature Extraction Interface](#unified-feature-extraction-interface)
-    - [Load Datasets](#load-datasets)
-  - [Jupyter Notebook Examples](#jupyter-notebook-examples)
-  - [Resources and Tools](#resources-and-tools)
-  - [Documentations](#documentations)
-  - [Ethical and Responsible Use](#ethical-and-responsible-use)
-  - [Technical Report and Citing LAVIS](#technical-report-and-citing-lavis)
-  - [License](#license)
-
-## Introduction
-LAVIS is a Python deep learning library for LAnguage-and-VISion intelligence research and applications. This library aims to provide engineers and researchers with a one-stop solution to rapidly develop models for their specific multimodal scenarios, and benchmark them across standard and customized datasets.
-It features a unified interface design to access
-- **10+** tasks
-(retrieval, captioning, visual question answering, multimodal classification etc.);
-- **20+** datasets (COCO, Flickr, Nocaps, Conceptual
-Commons, SBU, etc.);
-- **30+** pretrained weights of state-of-the-art foundation language-vision models and their task-specific adaptations, including [ALBEF](https://arxiv.org/pdf/2107.07651.pdf),
-[BLIP](https://arxiv.org/pdf/2201.12086.pdf), [ALPRO](https://arxiv.org/pdf/2112.09583.pdf), [CLIP](https://arxiv.org/pdf/2103.00020.pdf).
-<p align="center">
-    <br>
-    <img src="assets/demo-6.png"/>
-    <br>
-<p>
-
-Key features of LAVIS include:
-
-- **Unified and Modular Interface**: facilitating to easily leverage and repurpose existing modules (datasets, models, preprocessors), also to add new modules.
-
-- **Easy Off-the-shelf Inference and Feature Extraction**: readily available pre-trained models let you take advantage of state-of-the-art multimodal understanding and generation capabilities on your own data.
-
-- **Reproducible Model Zoo and Training Recipes**: easily replicate and extend state-of-the-art models on existing and new tasks.
-
-- **Dataset Zoo and Automatic Downloading Tools**: it can be a hassle to prepare the many language-vision datasets. LAVIS provides automatic downloading scripts to help prepare a large variety of datasets and their annotations.
-
-
-The following table shows the supported tasks, datasets and models in our library. This is a continuing effort and we are working on further growing the list.
-
-|                  Tasks                   |     Supported Models     |             Supported Datasets             |
-| :--------------------------------------: | :----------------------: | :----------------------------------------: |
-|         Image-text Pre-training          |       ALBEF, BLIP        | COCO, VisualGenome, SBU ConceptualCaptions |
-|           Image-text Retrieval           |    ALBEF, BLIP, CLIP     |              COCO, Flickr30k               |
-|           Text-image Retrieval           |    ALBEF, BLIP, CLIP     |              COCO, Flickr30k               |
-|        Visual Question Answering         |       ALBEF, BLIP        |           VQAv2, OKVQA, A-OKVQA            |
-|             Image Captioning             |           BLIP           |                COCO, NoCaps                |
-|           Image Classification           |           CLIP           |                  ImageNet                  |
-| Natural Language Visual Reasoning (NLVR) |       ALBEF, BLIP        |                   NLVR2                    |
-|          Visual Entailment (VE)          |          ALBEF           |                  SNLI-VE                   |
-|             Visual Dialogue              |           BLIP           |                  VisDial                   |
-|           Video-text Retrieval           |       BLIP, ALPRO        |               MSRVTT, DiDeMo               |
-|           Text-video Retrieval           |       BLIP, ALPRO        |               MSRVTT, DiDeMo               |
-|    Video Question Answering (VideoQA)    |       BLIP, ALPRO        |                MSRVTT, MSVD                |
-|              Video Dialogue              |         VGD-GPT          |                    AVSD                    |
-|      Multimodal Feature Extraction       | ALBEF, CLIP, BLIP, ALPRO |                 customized                 |
-|         Text-to-image Generation         |      [COMING SOON]       |                                            |
-
-## Installation
-
-1. (Optional) Creating conda environment
+1. Creating conda environment
 
 ```bash
 conda create -n lavis python=3.8
 conda activate lavis
 ```
-
-2. install from [PyPI](https://pypi.org/project/salesforce-lavis/)
-```bash
-pip install salesforce-lavis
-```
     
-3. Or, for development, you may build from source
+3. build from source
 
 ```bash
-git clone https://github.com/salesforce/LAVIS.git
+git clone https://github.com/Vanguitar/LAVIS.git
 cd LAVIS
 pip install -e .
 ```
